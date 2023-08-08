@@ -16,7 +16,7 @@ export default function initApp() {
 async function getBoardgameData(chart) {
   let success;
   try {
-    const boardgameRes = await fetch("http://3.99.226.95:3000/boardgame");
+    const boardgameRes = await fetch("https://geekchartr.live/boardgame");
     if (!boardgameRes.ok) {
       throw new Error("Failed to fetch boardgames!");
     }
@@ -32,7 +32,7 @@ async function getBoardgameData(chart) {
 
 async function getDateData(chart) {
   try {
-    const dateRes = await fetch("http://3.99.226.95:3000/date");
+    const dateRes = await fetch("https://geekchartr.live/date");
     if (!dateRes.ok) {
       throw new Error("Failed to fetch dates!");
     }
