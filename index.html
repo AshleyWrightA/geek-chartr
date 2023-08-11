@@ -9,23 +9,21 @@
     <title>BGG Charts</title>
   </head>
   <body>
-    <div id="app">
-      <header class="header">
-        <h1 class="title">GeekChartr</h1>
-      </header>
-      <main class="main">
-        <section class="loader__container-visible">
-          <div class="loader"></div>
-          <h2 class="loader__header">Fetching GeekData</h2>
-        </section>
-        <section class="failed__container-invisible">
-          <h2 class="failed__header">Failed to fetch data</h2>
-        </section>
-        <section class="main__section-invisible">
-          <canvas id="boardgame__canvas" class="section__canvas-invisible"></canvas>
-        </section>
-      </main>
-    </div>
+    <header class="header">
+      <h1 class="title">GeekChartr</h1>
+    </header>
+    <main class="main">
+      <section class="loader__container-visible">
+        <div class="loader"></div>
+        <h2 class="loader__header">Fetching GeekData</h2>
+      </section>
+      <section class="failed__container-invisible">
+        <h2 class="failed__header">Failed to fetch data</h2>
+      </section>
+      <section class="main__section-invisible">
+        <canvas id="boardgame__canvas" class="section__canvas-invisible"></canvas>
+      </section>
+    </main>
     <script type="module" src="./src/index.js"></script>
   </body>
 </html>
