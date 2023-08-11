@@ -2,21 +2,23 @@ import { Chart } from "chart.js/auto";
 
 export default function initApp() {
   const chart = makeInitialChart();
-
   getDateData(chart);
-  getBoardgameData(chart).then((success) => {
-    if (!success) {
-      handleFailedDisplay();
-    } else {
-      handleSuccessDisplay();
-    }
-  });
+
+  setTimeout(() => {
+    getBoardgameData(chart).then((success) => {
+      if (!success) {
+        handleFailedDisplay();
+      } else {
+        handleSuccessDisplay();
+      }
+    });
+  }, 100);
 }
 
 async function getBoardgameData(chart) {
   let success;
   try {
-    const boardgameRes = await fetch("http://3.99.226.95:3000/boardgame");
+    const boardgameRes = await fetch("https://www.geekchartr.live/boardgame");
     if (!boardgameRes.ok) {
       throw new Error("Failed to fetch boardgames!");
     }
@@ -32,7 +34,7 @@ async function getBoardgameData(chart) {
 
 async function getDateData(chart) {
   try {
-    const dateRes = await fetch("http://3.99.226.95:3000/date");
+    const dateRes = await fetch("https://www.geekchartr.live/date");
     if (!dateRes.ok) {
       throw new Error("Failed to fetch dates!");
     }
@@ -105,7 +107,7 @@ function handleSuccessDisplay() {
   mainSection.classList.add("main__section-visible");
   mainSection.classList.remove("main__section-invisible");
 
-  // Directly setting this overwrites the canvas elements width property, which conflicts with the css style.width
+  // Directly setting this overwrites the HTML canvas element's width property, which conflicts with the css style.width
   canvas.style.width = "85vw";
 }
 
